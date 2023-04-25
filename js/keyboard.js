@@ -32,7 +32,6 @@ class Keyboard {
       // Insert keyboard with all the rows and buttons inside them into HTML body tag (buttons are empty)
       document.body.append(keyboardContainer)
     }
-
   }
 
   initKeysValues() {
@@ -78,7 +77,6 @@ class Keyboard {
           break;
 
       }
-
     })
   }
 }
@@ -86,5 +84,33 @@ class Keyboard {
 const keyboard = new Keyboard(keysEN);
 
 
-keyboard.createKeys()
-keyboard.initKeysValues()
+keyboard.createKeys();
+keyboard.initKeysValues();
+
+
+window.addEventListener('keydown', function(event) {
+  // console.log(event.key);
+  let activeButton = document.querySelector(`[data-code="${event.code}"]`);
+  activeButton.classList.add("keyboard__key_pressed");
+  const textarea = document.querySelector(".textarea");
+  if (event.code === 'Tab') {
+    event.preventDefault();
+    textarea.value += "  ";
+  } else if (event.key === 'Shift') {
+    keyboard.shift = true;
+    keyboard.initKeysValues();
+  } else if (event.key === 'Alt') {
+    event.preventDefault();
+  }
+  textarea.focus();
+})
+
+
+window.addEventListener('keyup', function(event){
+  let activeButton = document.querySelector(`[data-code="${event.code}"]`);
+  activeButton.classList.remove("keyboard__key_pressed");
+  if (event.key === 'Shift') {
+    keyboard.shift = false;
+    keyboard.initKeysValues();
+  }
+})

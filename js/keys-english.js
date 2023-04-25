@@ -61,7 +61,7 @@ const keysEN = [
   {value: 'Shift', altValue: 'Shift', code: 'ShiftRight', row: 4},
   // Row 5
   {value: 'Ctrl', altValue: 'Ctrl', code: 'ControlLeft', row: 5},
-  {value: 'Alt', altValue: 'Alt', code: 'Altleft', row: 5},
+  {value: 'Alt', altValue: 'Alt', code: 'AltLeft', row: 5},
   {value: 'Space', altValue: 'Space', code: 'Space', row: 5},  
   {value: '◄', altValue: '◄', code: 'ArrowLeft', row: 5},
   {value: '▼', altValue: '▼', code: 'ArrowDown', row: 5},
