@@ -48,11 +48,20 @@ class Keyboard {
       // Fill the buttons with values. altValue is mostly for buttons which content changes while Shift button is pressed
 
       if (caps === true && shift === true) {
-        if (arr[index].row === 1) {
-          item.innerText = arr[index].altValue
-        } else {
-          item.innerText = arr[index].value;
+        if (lang === 'en') {
+          if (arr[index].row === 1) {
+            item.innerText = arr[index].altValue
+          } else {
+            item.innerText = arr[index].value;
+          }
+        } else if (lang === 'ru') {
+          if (arr[index].row === 1 && arr[index].code !== '192') {
+            item.innerText = arr[index].altValue
+          } else {
+            item.innerText = arr[index].value;
+          }
         }
+
       } else if (shift === false) {
         // Check this !!!!
         item.innerText = arr[index].value;
