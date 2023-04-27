@@ -3,8 +3,8 @@ import { keysRU } from "./keys-russian.js";
 
 
 class Keyboard {
-  constructor(options) {
-    this.keys = options;
+  constructor() {
+    this.keys = null;
     this.shift = false;
     this.caps = false;
     this.ctrl = false;
@@ -119,12 +119,10 @@ class Keyboard {
   }
 }
 
-const keyboard = new Keyboard(keysEN);
-keyboard.lang = 'en';
 
 
-keyboard.createKeys();
-keyboard.initKeysValues();
+
+
 
 
 window.addEventListener('keydown', function(event) {
@@ -195,6 +193,7 @@ window.addEventListener('keydown', function(event) {
     }
     
     keyboard.initKeysValues();
+    setLocalStorage();
   }
 })
 
@@ -222,8 +221,48 @@ window.addEventListener('keyup', function(event){
 
 // Фронт работ:
 // Убрать лишнюю m на клавиатуре так, чтобы сохранить нормальное расположение клавиш --- done
-// Добавить LocalStorage
+// Добавить LocalStorage --- done
 // Добавить клики по клавиатуре (Боже, за что?????)
 // Добавить сообщение о том, для какой ОС клавиатура и подписать, какая комбинация клавиш меняет раскладку
 // Опционально: линтер
+
+
+// let keyboard;
+
+function setLocalStorage() {
+  if (keyboard.lang === 'en') {
+    localStorage.setItem('keyboardKeys', 'keysEN');
+    localStorage.setItem('keyboardLang', 'en');
+  } else {
+    localStorage.setItem('keyboardKeys', 'keysRU');
+    localStorage.setItem('keyboardLang', 'ru');
+  }
+
+}
+
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+  if(localStorage.getItem('keyboardKeys')) {
+    console.log(eval(localStorage.getItem('keyboardKeys')));
+    keyboard.keys = eval(localStorage.getItem('keyboardKeys'));
+    keyboard.lang = localStorage.getItem('keyboardLang')
+    keyboard.createKeys();
+    keyboard.initKeysValues();
+  } else {
+    keyboard.keys = keysEN;
+    keyboard.lang = 'en';
+    keyboard.createKeys();
+    keyboard.initKeysValues();
+  }
+}
+
+
+const keyboard = new Keyboard()
+
+
+window.addEventListener('load', getLocalStorage);
+
+
+
 
