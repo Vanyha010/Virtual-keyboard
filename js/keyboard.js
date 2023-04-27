@@ -47,9 +47,13 @@ class Keyboard {
     buttonsList.forEach(function(item, index) {
       // Fill the buttons with values. altValue is mostly for buttons which content changes while Shift button is pressed
 
-
-
-      if (shift === false || (caps === true && shift === true)) {
+      if (caps === true && shift === true) {
+        if (arr[index].row === 1) {
+          item.innerText = arr[index].altValue
+        } else {
+          item.innerText = arr[index].value;
+        }
+      } else if (shift === false) {
         // Check this !!!!
         item.innerText = arr[index].value;
       } else if (shift === true) {
