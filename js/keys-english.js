@@ -53,7 +53,6 @@ const keysEN = [
   {value: 'b', altValue: 'B', code: '66', row: 4},
   {value: 'n', altValue: 'N', code: '78', row: 4},
   {value: 'm', altValue: 'M', code: '77', row: 4},
-  {value: 'm', altValue: 'M', code: '77', row: 4},
   {value: ',', altValue: '<', code: '188', row: 4},
   {value: '.', altValue: '>', code: '190', row: 4},
   {value: '/', altValue: '?', code: '191', row: 4},

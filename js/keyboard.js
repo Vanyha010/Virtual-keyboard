@@ -63,7 +63,6 @@ class Keyboard {
         }
 
       } else if (shift === false) {
-        // Check this !!!!
         item.innerText = arr[index].value;
       } else if (shift === true) {
         item.innerText = arr[index].altValue;
@@ -81,7 +80,7 @@ class Keyboard {
           }
         }
       }
-      // Data-code attribute is code of each key, made mostly to differ left Shift from rigth etc.
+
       item.dataset.code = arr[index].code;
       if (arr[index].keycode) {
         item.dataset.keycode = arr[index].keycode;
@@ -129,7 +128,6 @@ keyboard.initKeysValues();
 
 
 window.addEventListener('keydown', function(event) {
-  // console.log(event.code);
   let activeButton = document.querySelector(`[data-code="${event.which}"]`);
   if (activeButton.dataset.keycode) {
     activeButton = this.document.querySelector(`[data-keycode="${event.code}"]`)
@@ -185,9 +183,8 @@ window.addEventListener('keydown', function(event) {
     keyboard.ctrl = true;
   } 
 
-  // Тут ещё одна работёнка для ведьмака: правильно реализовать CapsLock
-  // Фронт работ: увеличить только те клавиши, что нужно, а также сделать так, чтобы при активном capslock и нажатии на shift кнопки снова становились маленькими
 
+  // Вот куда-та сюда запихнуть Local Storage
   if (keyboard.ctrl === true && keyboard.alt === true) {
     if (keyboard.keys === keysEN) {
       keyboard.keys = keysRU;
@@ -198,7 +195,6 @@ window.addEventListener('keydown', function(event) {
     }
     
     keyboard.initKeysValues();
-
   }
 })
 
@@ -224,7 +220,10 @@ window.addEventListener('keyup', function(event){
 })
 
 
-
-
-// в initKeysValues добавить ещё одну проверку: на капслок, плюс одна дополнительная: на caps:true и shift:true одновременно
+// Фронт работ:
+// Убрать лишнюю m на клавиатуре так, чтобы сохранить нормальное расположение клавиш --- done
+// Добавить LocalStorage
+// Добавить клики по клавиатуре (Боже, за что?????)
+// Добавить сообщение о том, для какой ОС клавиатура и подписать, какая комбинация клавиш меняет раскладку
+// Опционально: линтер
 

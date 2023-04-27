@@ -53,7 +53,6 @@ const keysRU = [
   {value: 'и', altValue: 'И', code: '66', row: 4},
   {value: 'т', altValue: 'Т', code: '78', row: 4},
   {value: 'ь', altValue: 'Ь', code: '77', row: 4},
-  {value: 'ь', altValue: 'Ь', code: '77', row: 4},
   {value: 'б', altValue: 'Б', code: '188', row: 4},
   {value: 'ю', altValue: 'Ю', code: '190', row: 4},
   {value: '.', altValue: ',', code: '191', row: 4},
