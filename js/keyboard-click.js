@@ -44,10 +44,7 @@ export function buttonClick(event) {
         textarea.selectionStart++;
         textarea.selectionEnd = textarea.selectionStart;
         textarea.focus();
-      } else if (event.target.dataset.keycode === 'ArrowUp') {
-        let rows = textarea.value.split(/\r\n|\r|\n/).length;
-        // console.log(textarea.value.indexOf('s'))
-      }
+      } 
 
     } else {
       textarea.value = beforeCursor + event.target.textContent + afterCursor;
@@ -59,5 +56,4 @@ export function buttonClick(event) {
 }
 
 
-// Сделать стрелки
 // Shift сделать отдельно через mousedown

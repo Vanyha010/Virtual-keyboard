@@ -56,15 +56,15 @@ const keysRU = [
   {value: 'б', altValue: 'Б', code: '188', row: 4},
   {value: 'ю', altValue: 'Ю', code: '190', row: 4},
   {value: '.', altValue: ',', code: '191', row: 4},
-  {value: '▲', altValue: '▲', code: '38', keycode: 'ArrowUp', row: 4},
+  {value: '▲', altValue: '▲', code: '38', row: 4},
   {value: 'Shift', altValue: 'Shift', code: '16', keycode: 'ShiftRight', row: 4},
   // Row 5
   {value: 'Ctrl', altValue: 'Ctrl', code: '17', keycode: 'ControlLeft', row: 5},
   {value: 'Alt', altValue: 'Alt', code: '18', keycode: 'AltLeft', row: 5},
   {value: 'Space', altValue: 'Space', code: '32', keycode: 'Space', row: 5},  
-  {value: '◄', altValue: '◄', code: '37', keycode: 'ArrowLeft', row: 5},
-  {value: '▼', altValue: '▼', code: '40', keycode: 'ArrowDown', row: 5},
-  {value: '►', altValue: '►', code: '39', keycode: 'ArrowRight', row: 5},
+  {value: '◄', altValue: '◄', code: '37', row: 5},
+  {value: '▼', altValue: '▼', code: '40', row: 5},
+  {value: '►', altValue: '►', code: '39', row: 5},
   {value: 'Ctrl', altValue: 'Ctrl', code: '17', keycode: 'ControlRight', row: 5},
   {value: 'Alt', altValue: 'Alt', code: '18', keycode: 'AltRight', row: 5}
 ]

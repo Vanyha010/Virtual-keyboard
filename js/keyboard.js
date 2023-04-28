@@ -266,13 +266,34 @@ window.addEventListener('load', getLocalStorage);
 
 document.addEventListener('mousedown', function(event) {
   if (event.target.dataset.code) {
-    event.target.classList.add('keyboard__key_clicked')
+    if (event.target.dataset.code === '20') {
+      if (keyboard.caps === false) {
+        event.target.classList.add('keyboard__key_pressed');
+      } else {
+        event.target.classList.remove('keyboard__key_pressed');
+      }
+
+    } else {
+      event.target.classList.add('keyboard__key_clicked');
+    }
+
+    if (event.target.dataset.code === '16') {
+      keyboard.shift = true;
+      keyboard.initKeysValues();
+    }
   }
 })
 document.addEventListener('click', buttonClick);
 
 document.addEventListener('mouseup', function(event) {
-  event.target.classList.remove('keyboard__key_clicked');
+  if (event.target.dataset.code !== '20') {
+    event.target.classList.remove('keyboard__key_clicked');
+  }
+
+  if (event.target.dataset.code === '16') {
+    keyboard.shift = false;
+    keyboard.initKeysValues();
+  }
 })
 
 
