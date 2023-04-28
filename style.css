@@ -1,6 +1,6 @@
 .textarea {
-  width: 1000px;
-  height: 400px;
+  /* width: 1000px;
+  height: 400px; */
   font-size: 50px;
 }
 
@@ -22,13 +22,13 @@
   font-size: 26px;
 }
 
-.keyboard__key:active {
-  background-color: red;
-}
-
 .keyboard__key_pressed {
   background-color: green;
   border-radius: 10px;
+}
+
+.keyboard__key_clicked {
+  background-color: #79aa89;
 }
 
 .keyboard__key_wide {

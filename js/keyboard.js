@@ -1,5 +1,8 @@
 import { keysEN } from "./keys-english.js";
 import { keysRU } from "./keys-russian.js";
+import { buttonClick } from "./keyboard-click.js";
+
+export { keyboard };
 
 
 class Keyboard {
@@ -17,7 +20,9 @@ class Keyboard {
     const keyboardContainer = document.createElement("div");
     keyboardContainer.className = "keyboard";
     const textarea = document.createElement("textarea");
-    textarea.className = "textarea"
+    textarea.className = "textarea";
+    textarea.cols = 35;
+    textarea.rows = 6;
     document.body.prepend(textarea);
     // Create 5 rows of keys
     for (let i = 1; i < 6; i++) {
@@ -118,10 +123,6 @@ class Keyboard {
     })
   }
 }
-
-
-
-
 
 
 
@@ -244,9 +245,8 @@ window.addEventListener('beforeunload', setLocalStorage);
 
 function getLocalStorage() {
   if(localStorage.getItem('keyboardKeys')) {
-    console.log(eval(localStorage.getItem('keyboardKeys')));
     keyboard.keys = eval(localStorage.getItem('keyboardKeys'));
-    keyboard.lang = localStorage.getItem('keyboardLang')
+    keyboard.lang = localStorage.getItem('keyboardLang');
     keyboard.createKeys();
     keyboard.initKeysValues();
   } else {
@@ -258,11 +258,21 @@ function getLocalStorage() {
 }
 
 
-const keyboard = new Keyboard()
-
+const keyboard = new Keyboard();
 
 window.addEventListener('load', getLocalStorage);
 
 
+
+document.addEventListener('mousedown', function(event) {
+  if (event.target.dataset.code) {
+    event.target.classList.add('keyboard__key_clicked')
+  }
+})
+document.addEventListener('click', buttonClick);
+
+document.addEventListener('mouseup', function(event) {
+  event.target.classList.remove('keyboard__key_clicked');
+})
 
 
