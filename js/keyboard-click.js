@@ -44,7 +44,12 @@ export function buttonClick(event) {
         textarea.selectionStart++;
         textarea.selectionEnd = textarea.selectionStart;
         textarea.focus();
-      } 
+      } else if (event.target.dataset.keycode === 'Space') {
+        textarea.value = beforeCursor + " " + afterCursor;
+        textarea.selectionStart = beforeCursor.length + 1;
+        textarea.selectionEnd = textarea.selectionStart;
+        textarea.focus();
+      }
 
     } else {
       textarea.value = beforeCursor + event.target.textContent + afterCursor;
@@ -55,5 +60,3 @@ export function buttonClick(event) {
   }
 }
 
-
-// Shift сделать отдельно через mousedown
