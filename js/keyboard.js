@@ -24,6 +24,10 @@ class Keyboard {
     textarea.cols = 35;
     textarea.rows = 6;
     document.body.prepend(textarea);
+    const heading = document.createElement("h1");
+    heading.classList.add("heading");
+    heading.textContent = "RSS Virtual Keyboard";
+    document.body.prepend(heading);
     // Create 5 rows of keys
     for (let i = 1; i < 6; i++) {
       const row = document.createElement("div");
@@ -41,6 +45,14 @@ class Keyboard {
       // Insert keyboard with all the rows and buttons inside them into HTML body tag (buttons are empty)
       document.body.append(keyboardContainer)
     }
+    const description = document.createElement("p");
+    const langChange = document.createElement("p");
+    description.textContent = "Клавиатура создана в операционной системе Windows";
+    langChange.textContent = "Для переключения языка комбинация: левыe ctrl + alt";
+    description.classList.add("description");
+    langChange.classList.add("description");
+    document.body.append(description);
+    document.body.append(langChange);
   }
 
   initKeysValues() {
@@ -219,16 +231,6 @@ window.addEventListener('keyup', function(event){
   }
 })
 
-
-// Фронт работ:
-// Убрать лишнюю m на клавиатуре так, чтобы сохранить нормальное расположение клавиш --- done
-// Добавить LocalStorage --- done
-// Добавить клики по клавиатуре (Боже, за что?????)
-// Добавить сообщение о том, для какой ОС клавиатура и подписать, какая комбинация клавиш меняет раскладку
-// Опционально: линтер
-
-
-// let keyboard;
 
 function setLocalStorage() {
   if (keyboard.lang === 'en') {
