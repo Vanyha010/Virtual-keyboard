@@ -15,7 +15,6 @@ class Keyboard {
     this.lang = 'en';
   }
 
-
   createKeys() {
     const keyboardContainer = document.createElement("div");
     keyboardContainer.className = "keyboard";
@@ -194,8 +193,6 @@ window.addEventListener('keydown', function(event) {
     keyboard.ctrl = true;
   } 
 
-
-  // Вот куда-та сюда запихнуть Local Storage
   if (keyboard.ctrl === true && keyboard.alt === true) {
     if (keyboard.keys === keysEN) {
       keyboard.keys = keysRU;
